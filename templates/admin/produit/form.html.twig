@@ -1,0 +1,38 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+    {% if editMode %}
+        Modifier
+    {% else %}
+        Ajouter
+    {% endif %}
+{% endblock %}
+
+{% block body %}
+    <h1 class="text-center my-4">
+    {% if editMode %}
+        Modifier
+    {% else %}
+        Ajouter
+    {% endif %}
+     un produit</h1>
+
+    <div class="container col-5 mt-4">
+    {{form_start(formProduit, {
+            attr: {novalidate: 'novalidate'}
+        }) }}
+        {{form_row(formProduit.title, {
+            label: "Titre",
+            }) }}
+        {{form_row(formProduit.description)}}
+        {{form_row(formProduit.taille)}}
+        {{form_row(formProduit.collection)}}
+        {{form_row(formProduit.photo)}}
+        {{form_row(formProduit.prix)}}
+        {{form_row(formProduit.stock)}}
+
+    <button type="submit" class="btn btn-outline-success">Enregistrer</button>
+    {{form_end(formProduit)}}
+</div>
+
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends "base.html.twig" %}
+{% block title %}Gestion des produits{% endblock %}
+
+{% block body %}
+
+<table class="container col-4 mt-4 table table-dark table-striped">
+<thead>
+    <tr>
+        <th>#</th>
+        <th>Titre</th>
+        <th>Description</th>
+        <th>Taille</th>
+        <th>Collection</th>
+        <th>Photo</th>
+        <th>Prix</th>
+        <th>Stock</th>
+        <th>Option</th>
+    </tr>
+</thead>
+<tbody>
+ {% for produit in produits %}
+        
+        <tr>
+            <td>{{ produit.id }}</td>
+            <td>{{ produit.title }}</td>
+            <td>{{ produit.description }}</td>
+            <td>{{ produit.taille }}</td>
+            <td>{{ produit.collection }}</td>
+            <td>{{ produit.photo }}</td>
+            <td>{{ produit.prix }}</td>
+            <td>{{ produit.stock }}</td>
+            <td>
+            <a href="{{ path('voir_produit', {id: produit.id}) }}" class="bi bi-eye"></a>
+            <a href="{{path('modif_produit', {id: produit.id}) }}" class="bi bi-pencil-square text-warning"></a>
+            <a href="{{path('suppr_produit', {id: produit.id}) }}" class="bi bi-trash3 text-danger"></a>
+            </td>
+        </tr>
+
+    {% endfor %}
+</tbody>
+</table>
+
+
+{% endblock %}
