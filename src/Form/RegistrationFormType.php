@@ -23,9 +23,11 @@ class RegistrationFormType extends AbstractType
         $builder            
             ->add('civilite', ChoiceType::class, [
                 'choices' => [
-                    'homme' => 'homme',
-                    'femme' => 'femme',
+                    'Homme' => 'homme',
+                    'Femme' => 'femme',
                 ],
+                'multiple' => false,
+                'expanded' => true
             ])
             ->add('nom')
             ->add('prenom')

@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -20,6 +21,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column]
     private ?int $id = null;
 
+    #[Assert\NotBlank(message: 'Ce champs est obligatoire')]
     #[ORM\Column(length: 180, unique: true)]
     private ?string $email = null;
 
@@ -32,9 +34,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column]
     private ?string $password = null;
 
+    #[Assert\NotBlank(message: 'Ce champs est obligatoire')]
     #[ORM\Column(length: 255)]
     private ?string $nom = null;
 
+    #[Assert\NotBlank(message: 'Ce champs est obligatoire')]
     #[ORM\Column(length: 255)]
     private ?string $prenom = null;
 
@@ -151,9 +155,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this->civilite;
     }
 
-    public function setCivilite(string $civilité): static
+    public function setCivilite(string $civilite): static
     {
-        $this->civilite = $civilité;
+        $this->civilite = $civilite;
 
         return $this;
     }

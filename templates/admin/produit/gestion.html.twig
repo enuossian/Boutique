@@ -3,6 +3,12 @@
 
 {% block body %}
 
+<div class="text-center mt-4">
+<h1 class="mb-4">Gestion des produits</h1>
+<a href="{{path('ajout_produit')}}" class="col-md-4 btn btn-dark mb-2">AJOUTER UN PRODUIT</a>
+
+</div>
+
 <table class="container col-4 mt-4 table table-dark table-striped">
 <thead>
     <tr>
@@ -30,9 +36,9 @@
             <td>{{ produit.prix }}</td>
             <td>{{ produit.stock }}</td>
             <td>
-            <a href="{{ path('voir_produit', {id: produit.id}) }}" class="bi bi-eye"></a>
-            <a href="{{path('modif_produit', {id: produit.id}) }}" class="bi bi-pencil-square text-warning"></a>
-            <a href="{{path('suppr_produit', {id: produit.id}) }}" class="bi bi-trash3 text-danger"></a>
+                <a href="{{ path('voir_produit', {id: produit.id}) }}" class="bi bi-search text-success"></a>
+                <a href="{{path('modif_produit', {id: produit.id}) }}" class="bi bi-pencil-square text-warning"></a>
+                <a href="{{path('suppr_produit', {id: produit.id}) }}" class="bi bi-trash3 text-danger"></a>
             </td>
         </tr>
 

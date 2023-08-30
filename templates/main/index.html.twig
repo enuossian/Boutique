@@ -3,5 +3,30 @@
 {% block title %}Accueil{% endblock %}
 
 {% block body %}
-<h1 class="text-center mt-4">Page d'acceuil</h1>
+
+<div class="text-start m-5">
+    <h1>NOUVEAUX SACS POUR CHAQUE STYLE</h1>
+    <p>Le sac est désormais un accessoire incontournable de toute garde-robe féminine. Dénichez le sac de vos rêves parmis une sélection de pièces de créateur. Les sacs à main restent un classique indémodable, mais craquez aussi pour les pochettes Versace, les sacs à bandoulière Loulou de Saint Laurent ou les multiples versions du sac Le Chiquito de Jacquemus. Pour un look irrésistible de jour comme de nuit.</p>
+</div>
+
+
+{% for produit in produits %}
+    <div class="card mb-3 container my-4" style="max-width: 800px;">
+    <div class="row g-0">
+        <div class="col-md-4">
+        <img src="{{ asset('img/upload/' ~ produit.photo) }}" class="img-fluid rounded-start" alt="...">
+        </div>
+        <div class="col-md-8">
+        <div class="card-body fw-bold ">
+            <h5 class="card-title">{{ produit.title}}</h5>
+            <p class="card-text">{{ produit.description}}</p>
+            <p class="card-text">{{ produit.prix}} € </p>
+            <a class="btn btn-success" href="{{ path('voir_produit', {id:produit.id}) }}" role="button">Voir le produit</a>
+        </div>
+        </div>
+    </div>
+    </div>
+{% endfor %}
+
+
 {% endblock %}

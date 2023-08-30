@@ -5,6 +5,7 @@ namespace App\Controller;
 use DateTime;
 use App\Entity\Produit;
 use App\Form\ProduitType;
+use App\Repository\UserRepository;
 use App\Repository\ProduitRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -19,7 +20,7 @@ class AdminController extends AbstractController
     #[Route('/admin', name: 'app_admin')]
     public function index(): Response
     {
-        return $this->render('admin/produit/index.html.twig');
+        return $this->render('admin/index.html.twig');
     }
 
     #[Route('/produit/modifier/{id}', name:'modif_produit')]
@@ -88,8 +89,7 @@ class AdminController extends AbstractController
         return $this->redirectToRoute('produit_gestion');
     }
 
-    #[Route('/produit/voir/{id}', name:'voir_produit')]
-    public function voir($id, ProduitRepository $repo, Request $request, EntityManagerInterface $manager)
-    {
-    }
+
+
+   
 }

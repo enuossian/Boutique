@@ -1,0 +1,16 @@
+{% extends "base.html.twig" %}
+{% block title %}Modifier un membre{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1 class="text-center my-4">Modifier un membre</h1>
+    {{form_start(form, {attr: {novalidate: 'novalidate'}} )}}
+    {{form_row(form.roles, {
+        label: "Statut:"
+    })}}
+    {{form_end(form)}}
+<button type="submit" class="btn btn-outline-success">Enregistrer</button>
+</div>
+
+
+{% endblock %}
