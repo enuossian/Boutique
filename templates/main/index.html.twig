@@ -22,6 +22,7 @@
             <p class="card-text">{{ produit.description}}</p>
             <p class="card-text">{{ produit.prix}} € </p>
             <a class="btn btn-success" href="{{ path('voir_produit', {id:produit.id}) }}" role="button">Voir le produit</a>
+            <a class="btn btn-dark" href="{{path('cart_add', {id:produit.id})}}" class="btn btn-outline-dark">Ajouter au panier</a>
         </div>
         </div>
     </div>

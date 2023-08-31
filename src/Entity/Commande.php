@@ -15,7 +15,7 @@ class Commande
     private ?int $id = null;
 
     #[ORM\Column]
-    private ?int $quantité = null;
+    private ?int $quantite = null;
 
     #[ORM\Column]
     private ?int $montant = null;
@@ -39,14 +39,14 @@ class Commande
         return $this->id;
     }
 
-    public function getQuantité(): ?int
+    public function getQuantite(): ?int
     {
-        return $this->quantité;
+        return $this->quantite;
     }
 
-    public function setQuantité(int $quantité): static
+    public function setQuantité(int $quantite): static
     {
-        $this->quantité = $quantité;
+        $this->quantite = $quantite;
 
         return $this;
     }

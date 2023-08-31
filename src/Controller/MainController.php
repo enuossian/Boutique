@@ -29,5 +29,10 @@ class MainController extends AbstractController
         'produit' => $produit
         ]);
     }
+    #[Route('/profil', name:'mon_profil')]
+    public function profil()
+    {
+
+    }
      
 }
