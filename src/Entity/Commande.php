@@ -44,7 +44,7 @@ class Commande
         return $this->quantite;
     }
 
-    public function setQuantité(int $quantite): static
+    public function setQuantite(int $quantite): static
     {
         $this->quantite = $quantite;
 

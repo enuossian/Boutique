@@ -50,7 +50,14 @@
     {% endif %}    
 </div>
 
-<div class="text-center mt-5">
+{% if app.user %}
+    <div class="text-center mt-5">
     <a class="btn btn-primary" href="{{path('ajout_commande')}}" role="button">Valider mon panier</a>
 </div>
+{% elseif not app.user %}
+    <div class="text-center mt-5">
+    <a class="btn btn-primary" href="{{path('accueil')}}" role="button">Valider mon panier</a>
+</div>
+{% endif %}
+
 {% endblock %}

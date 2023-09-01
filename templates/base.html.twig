@@ -32,11 +32,13 @@
         <li class="nav-item">
           <a class="nav-link" href="{{path('app_login')}}">Connexion</a>
         </li>
+        {% if is_granted('ROLE_USER') %}
         <li class="nav-item">
-          <a class="nav-link" href="#">Mon compte</a>
+          <a class="nav-link" href="{{path('profil')}}">Mon compte</a>
         </li>
+        {% endif %}
         <li class="nav-item">
-          <a class="nav-link position relative" href="{{path('cart')}}">Panier
+          <a class="nav-link position-relative" href="{{path('cart')}}">Panier
 
           {% if app.session.get('qt') > 0 %}
 
@@ -47,9 +49,24 @@
           {% endif %}
           </a>
         </li>
+        {% if is_granted('ROLE_ADMIN') %}
+        
         <li class="nav-item">
           <a class="nav-link" href="{{path('app_admin')}}">Backoffice</a>
         </li>
+        
+        <li class="nav-item">
+          <a class="nav-link" href="{{ path('app_logout') }}">Deconnexion</a>
+        </li>
+      
+        {% endif %}
+        {% if is_granted('ROLE_USER') %}
+        
+        <li class="nav-item">
+          <a class="nav-link" href="{{ path('app_logout') }}">Deconnexion</a>
+        </li>
+        {% endif %}
+        
       </ul>
     </div>
   </div>
@@ -58,4 +75,3 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
     </body>
 </html>
-if{{app.user}}
